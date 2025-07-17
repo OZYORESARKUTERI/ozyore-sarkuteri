@@ -1,0 +1,102 @@
+function renderCategories() {
+  const catDiv = document.getElementById('category-list');
+  catDiv.innerHTML = '';
+
+  categories.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.textContent = cat.name;
+    btn.onclick = () => filterProducts(cat.id);
+    catDiv.appendChild(btn);
+  });
+
+  // "Tümü" butonu
+  const allBtn = document.createElement('button');
+  allBtn.textContent = 'Tümü';
+  allBtn.onclick = () => renderProducts(products);
+  catDiv.appendChild(allBtn);
+}
+
+function renderProducts(list) {
+  const productDiv = document.getElementById('product-list');
+  productDiv.innerHTML = '';
+
+  list.forEach(prod => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+      <img src="${prod.img}" alt="${prod.name}" />
+      <h3>${prod.name}</h3>
+      <p>${prod.description}</p>
+      <p>Fiyat: ${prod.price} ₺</p>
+      <button onclick="addToCart(${prod.id})">Sepete Ekle</button>
+    `;
+
+    productDiv.appendChild(card);
+  });
+}
+
+function filterProducts(categoryId) {
+  const filtered = products.filter(p => p.category === categoryId);
+  renderProducts(filtered);
+}
+
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  const found = cart.find(item => item.id === productId);
+  if (found) {
+    found.quantity++;
+  } else {
+    cart.push({...product, quantity: 1});
+  }
+  renderCart();
+}
+
+function renderCart() {
+  const cartDiv = document.getElementById('cart-list');
+  cartDiv.innerHTML = '';
+
+  if (cart.length === 0) {
+    cartDiv.textContent = 'Sepetiniz boş.';
+    document.getElementById('cart-total').textContent = '0';
+    return;
+  }
+
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      ${item.name} x ${item.quantity} = ${item.price * item.quantity} ₺ 
+      <button onclick="removeFromCart(${item.id})">Çıkar</button>
+    `;
+    cartDiv.appendChild(div);
+  });
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  document.getElementById('cart-total').textContent = total;
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  renderCart();
+}
+
+// Ödeme butonuna basılınca
+document.getElementById('checkout-btn').addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert('Sepetiniz boş!');
+    return;
+  }
+
+  // Ödeme işlemi yerine yönlendirme veya demo mesajı
+  alert('Ödeme sayfasına yönlendiriliyorsunuz...');
+  // Buraya gerçek ödeme entegrasyonu eklenebilir
+});
+
+window.onload = () => {
+  renderCategories();
+  renderProducts(products);
+  renderCart();
+};
