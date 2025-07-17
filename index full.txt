@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Özyöre Şarküteri</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Özyöre Şarküteri</h1>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="admin.html">Yönetici Paneli</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="products">
+      <h2>Ürünlerimiz</h2>
+      <div class="product-list"></div>
+    </section>
+
+    <section id="cart">
+      <h2>Sepetiniz</h2>
+      <div class="cart-items"></div>
+      <p>Toplam: <span id="total-price">₺0</span></p>
+      <button id="checkout-btn">Satın Al</button>
+    </section>
+
+    <section id="payment-info" style="display:none;">
+      <h3>Ödeme Bilgileri</h3>
+      <p>IBAN: <span id="iban-display">[IBAN buraya gelecek]</span></p>
+      <p>Alıcı Adı: Özcan Aladağ</p>
+      <p>Ödeme yaptıktan sonra siparişinizi WhatsApp ile bildirebilirsiniz.</p>
+      <a id="whatsapp-link" href="#" target="_blank">WhatsApp ile Sipariş Gönder</a>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

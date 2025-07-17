@@ -1,12 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Yönetici Paneli</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yönetici Paneli - Özyöre Şarküteri</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
     <h1>Yönetici Paneli</h1>
-    <p>Buradan fiyatları ve ödeme bilgilerini güncelleyebilirsiniz.</p>
-</body>
-</html>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="admin.html">Yönetici Paneli</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>IBAN Bilgisi</h2>
+      <input type="text" id="iban-input" placeholder="IBAN giriniz" />
+      <button id="save-iban">Kaydet</button>
+    </section>
+
+    <section>
+      <h2>Ürün Fiyat Güncelleme</h2>
+      <div id="product-prices"></div>
+    </section>
+  </main>
+
+  <script>
+    // Ürün verileri (aynı app.js'dekiyle uyumlu)
+    const products = [
+      { id: 1, name: "Taze Kaşar", price: 220 },
+      { id: 2, name: "Eski Kaşar", price: 280 },
+      { id: 3, name: "Çeçil Peyniri", price: 250 },
+      { id: 4, name: "Kars Çiçek Balı", price: 230 },
+      { id: 5, name: "Diğer Ballar", price: 180 },
+      { id: 6, name: "Kurutulmuş Kuşburnu", price: 50 },
+      { id: 7, name:
