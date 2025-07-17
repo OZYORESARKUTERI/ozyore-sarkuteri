@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hoşgeldiniz - Özyöre Şarküteri</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yönetici Paneli - Özyöre Şarküteri</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Hoşgeldiniz - Özyöre Şarküteri</h1>
-    <p>Bal, peynir, kaşar, arıcılık malzemeleri ve daha fazlası...</p>
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="admin.html">Yönetici Paneli</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Yönetici Paneli</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="admin.html">Yönetici Paneli</a>
+        </nav>
+    </header>
 
-  <main>
-    <section>
-      <h2>Ürünler</h2>
-      <div class="product-list" id="product-list"></div>
-    </section>
+    <main>
+        <section>
+            <h2>Panel</h2>
+            <p>Burada yönetim işlemleri yapılabilir.</p>
+        </section>
+    </main>
 
-    <section>
-      <h2>Sepet</h2>
-      <div class="cart-items" id="cart-items"></div>
-      <button id="checkout-btn">Satın Al</button>
-      <div id="payment-info"></div>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
