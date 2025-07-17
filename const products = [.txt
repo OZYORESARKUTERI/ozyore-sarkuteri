@@ -1,0 +1,60 @@
+const products = [
+  { name: "Taze Kaşar", price: 180, image: "images/taze-kasar.jpg" },
+  { name: "Eski Kaşar", price: 240, image: "images/eski-kasar.jpg" },
+  { name: "Kars Çiçek Balı", price: 300, image: "images/cicek-bali.jpg" },
+  { name: "Tereyağı", price: 260, image: "images/tereyagi.jpg" },
+  { name: "Çeçil Peyniri", price: 220, image: "images/cecil-peyniri.jpg" },
+  { name: "Kurutulmuş Kuşburnu", price: 100, image: "images/kusburnu.jpg" },
+  { name: "Kayısı", price: 90, image: "images/kayisi.jpg" },
+  { name: "Ceviz", price: 180, image: "images/ceviz.jpg" },
+  { name: "Maske", price: 25, image: "images/maske.jpg" },
+  { name: "Eldiven", price: 20, image: "images/eldiven.jpg" },
+  { name: "Körük", price: 120, image: "images/koruk.jpg" },
+  { name: "Mum (Lis)", price: 40, image: "images/mum.jpg" },
+  { name: "Arı Kovanı", price: 550, image: "images/kovan.jpg" },
+];
+
+const productList = document.getElementById("product-list");
+const cartItems = document.getElementById("cart-items");
+const paymentInfo = document.getElementById("payment-info");
+
+let cart = [];
+
+products.forEach((product, index) => {
+  const div = document.createElement("div");
+  div.className = "product";
+  div.innerHTML = `
+    <img src="${product.image}" alt="${product.name}" style="width:100%">
+    <h3>${product.name}</h3>
+    <p>${product.price} TL</p>
+    <button onclick="addToCart(${index})">Sepete Ekle</button>
+  `;
+  productList.appendChild(div);
+});
+
+function addToCart(index) {
+  const item = products[index];
+  cart.push(item);
+  displayCart();
+}
+
+function displayCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+  cart.forEach(item => {
+    const div = document.createElement("div");
+    div.textContent = `${item.name} - ${item.price} TL`;
+    cartItems.appendChild(div);
+    total += item.price;
+  });
+  const totalDiv = document.createElement("div");
+  totalDiv.innerHTML = `<strong>Toplam: ${total} TL</strong>`;
+  cartItems.appendChild(totalDiv);
+}
+
+document.getElementById("checkout-btn").addEventListener("click", () => {
+  paymentInfo.innerHTML = `
+    <p>Ödeme için IBAN: <em>BURAYA İBAN EKLENECEK</em></p>
+    <p>Lütfen ödeme dekontunu 05321009336 numaralı WhatsApp hattımıza gönderin. (Özcan Aladağ)</p>
+  `;
+});
