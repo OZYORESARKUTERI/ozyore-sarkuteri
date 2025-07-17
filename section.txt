@@ -1,0 +1,14 @@
+<section>
+  <h2>Ürün Kategorileri</h2>
+  <div id="category-list"></div>
+
+  <h2>Ürünler</h2>
+  <div id="product-list"></div>
+</section>
+
+<section>
+  <h2>Alışveriş Sepeti</h2>
+  <div id="cart-list"></div>
+  <p>Toplam: <span id="cart-total">0</span> ₺</p>
+  <button id="checkout-btn">Ödeme Yap</button>
+</section>
