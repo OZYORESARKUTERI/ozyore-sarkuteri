@@ -2,39 +2,86 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yönetici Paneli - Özyöre Şarküteri</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    h1 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    input[type="number"] { width: 80px; }
+    button { background-color: #28a745; color: white; padding: 0.3rem 0.6rem; border: none; cursor: pointer; border-radius: 4px; }
+    .back-link { display: inline-block; margin-bottom: 1rem; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Yönetici Paneli</h1>
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="admin.html">Yönetici Paneli</a>
-    </nav>
-  </header>
+  <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+  <h1>Yönetici Paneli</h1>
+  <p>Buradan ürün fiyatlarını düzenleyebilirsiniz.</p>
 
-  <main>
-    <section>
-      <h2>IBAN Bilgisi</h2>
-      <input type="text" id="iban-input" placeholder="IBAN giriniz" />
-      <button id="save-iban">Kaydet</button>
-    </section>
-
-    <section>
-      <h2>Ürün Fiyat Güncelleme</h2>
-      <div id="product-prices"></div>
-    </section>
-  </main>
+  <table>
+    <thead>
+      <tr>
+        <th>Ürün Adı</th>
+        <th>Mevcut Fiyat (TL)</th>
+        <th>Yeni Fiyat</th>
+        <th>Güncelle</th>
+      </tr>
+    </thead>
+    <tbody id="admin-table-body"></tbody>
+  </table>
 
   <script>
-    // Ürün verileri (aynı app.js'dekiyle uyumlu)
     const products = [
-      { id: 1, name: "Taze Kaşar", price: 220 },
-      { id: 2, name: "Eski Kaşar", price: 280 },
-      { id: 3, name: "Çeçil Peyniri", price: 250 },
-      { id: 4, name: "Kars Çiçek Balı", price: 230 },
-      { id: 5, name: "Diğer Ballar", price: 180 },
-      { id: 6, name: "Kurutulmuş Kuşburnu", price: 50 },
-      { id: 7, name:
+      { name: "Taze Kaşar", price: 180 },
+      { name: "Eski Kaşar", price: 240 },
+      { name: "Kars Çiçek Balı", price: 300 },
+      { name: "Tereyağı", price: 260 },
+      { name: "Çeçil Peyniri", price: 220 },
+      { name: "Kurutulmuş Kuşburnu", price: 100 },
+      { name: "Kayısı", price: 90 },
+      { name: "Ceviz", price: 180 },
+      { name: "Maske", price: 25 },
+      { name: "Eldiven", price: 20 },
+      { name: "Körük", price: 120 },
+      { name: "Mum (Lis)", price: 40 },
+      { name: "Arı Kovanı", price: 550 }
+    ];
+
+    const tbody = document.getElementById("admin-table-body");
+
+    products.forEach((product, index) => {
+      const row = document.createElement("tr");
+      const nameCell = document.createElement("td");
+      nameCell.textContent = product.name;
+
+      const currentPriceCell = document.createElement("td");
+      currentPriceCell.textContent = product.price + " TL";
+
+      const inputCell = document.createElement("td");
+      const input = document.createElement("input");
+      input.type = "number";
+      input.value = product.price;
+      inputCell.appendChild(input);
+
+      const updateCell = document.createElement("td");
+      const button = document.createElement("button");
+      button.textContent = "Kaydet";
+      button.onclick = () => {
+        const newPrice = parseFloat(input.value);
+        if (!isNaN(newPrice)) {
+          alert(`${product.name} için yeni fiyat: ${newPrice} TL olarak güncellendi.`);
+        }
+      };
+      updateCell.appendChild(button);
+
+      row.appendChild(nameCell);
+      row.appendChild(currentPriceCell);
+      row.appendChild(inputCell);
+      row.appendChild(updateCell);
+
+      tbody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
