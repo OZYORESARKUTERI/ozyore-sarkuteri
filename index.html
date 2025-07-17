@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Özyöre Şarküteri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffef6;
+      color: #333;
+    }
+    header {
+      background-color: #f4b400;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #fff;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background-color: #fff3cd;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .hero {
+      padding: 2rem;
+      text-align: center;
+      background-color: #fff8e1;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .product {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+    .product h3 {
+      margin: 0.5rem 0;
+    }
+    .product button {
+      background-color: #f4b400;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #f4b400;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Özyöre Şarküteri</h1>
+  </header>
+
+  <nav>
+    <a href="#bal">Bal</a>
+    <a href="#kasar">Kaşar</a>
+    <a href="#malzeme">Arıcılık Malzemeleri</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Doğadan Sofranıza – %100 Doğal Ürünler</h2>
+    <p>Yöresel bal, taze kaşar ve kaliteli arıcılık malzemeleri burada!</p>
+  </section>
+
+  <section class="products" id="bal">
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150.png?text=Kestane+Bal%C4%B1" alt="Kestane Balı" />
+      <h3>Kestane Balı</h3>
+      <p>500g - 200 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150.png?text=%C3%87i%C3%A7ek+Bal%C4%B1" alt="Çiçek Balı" />
+      <h3>Çiçek Balı</h3>
+      <p>1kg - 180 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+  </section>
+
+  <section class="products" id="kasar">
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150.png?text=Eski+Ka%C5%9Far" alt="Eski Kaşar" />
+      <h3>Eski Kaşar</h3>
+      <p>1kg - 250 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150.png?text=Taze+Ka%C5%9Far" alt="Taze Kaşar" />
+      <h3>Taze Kaşar</h3>
+      <p>500g - 110 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+  </section>
+
+  <section class="products" id="malzeme">
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150.png?text=Kovan" alt="Kovan" />
+      <h3>Arı Kovanı</h3>
+      <p>1 adet - 600 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150.png?text=Maske" alt="Arıcı Maskesi" />
+      <h3>Arıcı Maskesi</h3>
+      <p>1 adet - 120 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+  </section>
+
+  <footer id="iletisim">
+    <p>İletişim: info@ozyoresarkuteri.com | WhatsApp: 05xx xxx xx xx</p>
+    <p>&copy; 2025 Özyöre Şarküteri</p>
+  </footer>
+</body>
+</html>
